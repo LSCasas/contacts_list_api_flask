@@ -1,0 +1,11 @@
+    @app.route("/init_db", methods=['POST'])
+    def init_db():
+        with app.app_context():
+            db.create_all()
+        return "Database created"
+
+    @app.route("/drop_db", methods=['POST'])
+    def init_db():
+        with app.app_context():
+            db.drop_all()
+        return "Database dropped"
