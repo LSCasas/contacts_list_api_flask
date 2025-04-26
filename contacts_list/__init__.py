@@ -1,11 +1,10 @@
 from flask import Flask
+from .config import Config
+from .db import db
 
 
 def create_app():
     app = Flask(__name__)
-
-    @app.route("/")
-    def init():
-        return "Server is living"
-
+    app.config.from_object(Config)
+    db.init_app(app)
     return app
