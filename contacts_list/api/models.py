@@ -1,10 +1,9 @@
-from sqlalchemy import DateTime, Integer, String
-from sqlalchemy.orm import mapped_column
+from sqlalchemy import DateTime, Integer, String, ForeignKey
+from sqlalchemy.orm import mapped_column, relationship
 from contacts_list.db import db
 
-
 class User(db.Model):
-    """User Object  """
+    """User Object"""
     __tablename__ = 'users'
     id_user = mapped_column(Integer, primary_key=True)
     username = db.Column(String(length=50), unique=True, nullable=False)
@@ -13,6 +12,7 @@ class User(db.Model):
     phone = db.Column(String(length=50))
     address = db.Column(String)
 
+    contacts = relationship("Contact", back_populates="user", lazy=True)
 
 class Contact(db.Model):
     """Contact model related to a user"""
@@ -22,3 +22,7 @@ class Contact(db.Model):
     email = db.Column(String(50), nullable=False)
     phone = db.Column(String(length=50), nullable=False)
     address = db.Column(String)
+
+    id_user = db.Column(Integer, ForeignKey('users.id_user'), nullable=False)
+
+    user = relationship("User", back_populates="contacts")
