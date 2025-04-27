@@ -8,9 +8,7 @@ A RESTful API built with **Flask** to manage a list of personal contacts. It all
 
 ## 📁 Documentation
 
-You can find the full API documentation at the following link (if you have a Postman or any similar tool, you can document it this way):
-
-[API Documentation - Contact List](https://documenter.getpostman.com/view/36791092/2sB2izDYVn)
+https://documenter.getpostman.com/view/36791092/2sB2j1gXiV
 
 ---
 
@@ -107,7 +105,7 @@ contacts_list_flask/          # Main project
    Content-Type: application/json
 
    {
-     "username": "test",
+     "email": "test@example.com",
      "password": "test123"
    }
    ```

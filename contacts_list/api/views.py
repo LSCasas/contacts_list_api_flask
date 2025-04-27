@@ -7,6 +7,8 @@ from contacts_list.config import Config
 from contacts_list.db import db
 from . import api, models
 from .models import Contact
+from .models import User
+
 
 def token_required(func):
     @wraps(func)
@@ -158,13 +160,13 @@ def contacts(contact_id=None):
 
             db.session.commit()
 
-            return jsonify({"detail": f"Contact {contact.name} modificado"}), 200
+            return jsonify({"detail": f"Contact {contact.name} updated"}), 200
 
         if request.method == "DELETE":
             db.session.delete(contact)
             db.session.commit()
 
-            return jsonify({"detail": f"Contact {contact.name} eliminado"}), 200
+            return jsonify({"detail": f"Contact {contact.name} deleted"}), 200
 
         return jsonify({
             "id_contact": contact.id_contact,
