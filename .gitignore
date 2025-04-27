@@ -147,7 +147,6 @@ venv.bak/
 
 # mkdocs documentation
 /site
-.flaskenv
 function
 # mypy
 .mypy_cache/

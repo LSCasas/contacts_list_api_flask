@@ -1,0 +1,2 @@
+FLASK_APP=contacts_list:create_app
+FLASK_ENV=development
